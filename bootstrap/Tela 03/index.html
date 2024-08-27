@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <body>
+    <main class="container">
+        <form action="exerc3.php" method="POST">
+            
+            <div class="row mt-3 mb-3">
+                
+                <label for="patner-name" class="col-sm-2 col-form-label text-end fw-bold">Partner Name</label>
+                <div class="col">
+                    <input type="text" id="patner-name" name="patner-name" class="form-control">
+                </div>
+                <label for="patner-email" class="col-sm-2 col-form-label text-end fw-bold">Partner Email ID</label>
+                <div class="col">
+                    <input type="email" id="patner-email" name="patner-email" class="form-control">
+                </div>
+            </div>
+            <div class="row mt-3 mb-3">
+                
+                <label for="patner-legal-name" class="col-sm-2 col-form-label text-end fw-bold">Partner Legal Name</label>
+                <div class="col">
+                    <input type="text" id="patner-legal-name" name="patner-legal-name" class="form-control">
+                </div>
+                <label for="patner-mobile" class="col-sm-2 col-form-label text-end fw-bold">Partner Mobile</label>
+                <div class="col">
+                    <input type="text" id="patner-mobile" name="patner-mobile" class="form-control">
+                </div>
+            </div>
+            <div class="row mt-3 mb-3">
+                
+                <label for="patner-adress" class="col-sm-2 col-form-label text-end fw-bold">Partner Adress</label>
+                <div class="col">
+                    <textarea rows="2" id="patner-adress" name="patner-adress" class="form-control"></textarea>
+                </div>
+                
+            </div>
+            <div class="row mt-3 mb-3">
+                
+                <label for="contract" class="col-sm-2 col-form-label text-end fw-bold">Contract Start Date</label>
+                <div class="col">
+                    <input type="date" id="contract" name="contract" placeholder="Date Start" class="form-control">
+                </div>
+                <label for="contract-expiry" class="col-sm-2 col-form-label text-end fw-bold">Contract Expiry Date</label>
+                <div class="col">
+                    <input type="date" id="contract-expiry" name="contract-expiry" placeholder="Date End" class="form-control">
+                </div>
+            </div>
+            <div class="row mt-3 mb-3">
+                
+                <label for="minimum-amount" class="col-sm-2 col-form-label text-end fw-bold">Minimum Loan Amount</label>
+                <div class="col">
+                    <input type="text" id="minimum-amount" name="minimum-amount" class="form-control">
+                </div>
+                <label for="maximum-amount" class="col-sm-2 col-form-label text-end fw-bold">Maximum Loan Amount</label>
+                <div class="col">
+                    <input type="text" id="maximum-amount" name="maximum-amount" class="form-control">
+                </div>
+            </div>
+            <div class="row mt-3 mb-3">
+                
+                <label for="interest-rate" class="col-sm-2 col-form-label text-end fw-bold">Interest Rate</label>
+                <div class="col">
+                    <input type="text" id="interest-rate" name="interest-rate" class="form-control">
+                </div>
+                <label for="deposit-amount" class="col-sm-2 col-form-label text-end fw-bold">Deposit Amount</label>
+                <div class="col">
+                    <input type="text" id="deposit-amount" name="deposit-amount" class="form-control">
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-1">
+                    <button type="submit" class="btn btn-primary " type="button">Save</button>
+                </div>
+            </div>
+        </form>
+    </main>
+  </body>
