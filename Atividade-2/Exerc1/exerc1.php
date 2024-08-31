@@ -6,8 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="respexer1.php" method="POST">
-        <?php 
+    <form action="repostaexerc1.php" method="POST">
+        <?php
             for ($i=1; $i<=7; $i++)
             { ?>
                 <input type='number' name='valor<?= $i?>'>
