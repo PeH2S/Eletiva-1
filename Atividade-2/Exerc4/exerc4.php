@@ -4,40 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <title>Atividade 3</title>
+    <title>Atividade 4</title>
 </head>
 <body>
-<h1>Atividade 03</h1>
+<h1>Atividade 04</h1>
     <div class="container mt-5">
-        <h2>Ordenar Menor / Maior</h2>
+        <h2>Aplicando Desconto</h2>
         <form method="POST">
             <div class="mb-3">
                 <label for="num1" class="form-label">Número 1:</label>
-                <input type="number" class="form-control" id="num1" name="a">
+                <input type="number" step="0.01" class="form-control" id="num1" name="num1">
             </div>
-            <div class="mb-3">
-                <label for="num2" class="form-label">Número 2:</label>
-                <input type="number" class="form-control" id="num2" name="b">
-            </div>
+            
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
 
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             try {
-                $num1 = $_POST['a'];
-                $num2 = $_POST['b'];
-                if ($num1 < $num2)
+                $num1 = $_POST['num1'];
+                
+                if ($num1 > 100)
                 {
-                    echo "<div class='mt-3 alert alert-success'>Resultado: " . ($num1) .", ". ($num2) . "</div>";
-                }
-                else if ($num1 > $num2)
-                {
-                    echo "<div class='mt-3 alert alert-success'>Resultado: " . ($num2) .", ". ($num1) . "</div>";
+                    $porcent = 15 / 100;
+                    $desconto = $num1 * $porcent;
+                    $valorFinal = $num1 - $desconto;
+
+                    echo "<div class='mt-3 alert alert-success'>Resultado: Valor com desconto: " . number_format($valorFinal, 2) . "</div>";
                 }
                 else
                 {
-                    echo "<div class='mt-3 alert alert-success'>Resultado: Números = " . ($num1) . "</div>";
+                    echo "<div class='mt-3 alert alert-success'>Resultado: Valor: " . number_format($num1, 2) . "</div>";
                 }
             } catch (Exception $e) {
                 echo "<div class='mt-3 alert alert-danger'>Erro: " . $e->getMessage() . "</div>";
