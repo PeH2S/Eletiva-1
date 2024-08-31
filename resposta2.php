@@ -47,9 +47,8 @@
             while ($i <= 5);
 
             for ($i = 0; $i <= 5; $i++)
-            {
                 echo "$i \n";
-            }
+        
         } catch (Exception $e) {
             echo "Erro: ".$e->getMessage();
         }
