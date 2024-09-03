@@ -31,7 +31,7 @@
                 $peso = $_POST['peso'];
                 $altura = $_POST['altura'];
                 if ($altura == 0) {
-                    throw new Exception("A altura não pode ser zero.");
+                    echo "A altura não pode ser zero.";
                 }
                 $imc = $peso / pow($altura, 2);
                 echo "<div class='alert alert-success mt-3'>Resultado: " . number_format($imc, 2) . "</div>";

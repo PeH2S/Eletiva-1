@@ -31,7 +31,7 @@
                 $num1 = $_POST['num1'];
                 $num2 = $_POST['num2'];
                 if ($num2 == 0) {
-                    throw new Exception("Divisão por zero não permitida.");
+                    echo "Divisão por zero não permitida.";
                 }
                 echo "<div class='mt-3 alert alert-success'>Resultado: " . ($num1 / $num2) . "</div>";
             }

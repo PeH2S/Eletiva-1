@@ -31,7 +31,7 @@
                 $distancia = $_POST['distancia'];
                 $tempo = $_POST['tempo'];
                 if ($tempo == 0) {
-                    throw new Exception("O tempo não pode ser zero.");
+                    echo "O tempo não pode ser zero.";
                 }
                 $velocidade = $distancia / $tempo;
                 echo "<div class='alert alert-success mt-3'>Resultado: " . $velocidade . " km/h</div>";
