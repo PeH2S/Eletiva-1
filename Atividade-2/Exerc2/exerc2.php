@@ -23,6 +23,7 @@
         </form>
 
         <?php
+        
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             try {
                 $num1 = $_POST['num1'];
