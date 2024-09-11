@@ -1,3 +1,4 @@
+<?php declare(strict_types=1); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,11 +24,14 @@
         <?php
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             try{
-                $numero = $_POST['valor1'];
+                $numero = (float) $_POST['valor1'] ?? 0;
+                
+                function NumeroArredondado(float $numero): float{
+                    return round($numero);
+                }
+
         
-                $numeroArredondado = round($numero);
-        
-                echo "<p class='alert alert-success mt-3'>O número arredondado é: $numeroArredondado</p>";
+                echo "<p class='alert alert-success mt-3'>O número arredondado é: ".NumeroArredondado($numero)."</p>";
             } catch (Exception $e) {
                 echo "<div class='mt-3 alert alert-danger'>Erro: " . $e->getMessage() . "</div>";
             }

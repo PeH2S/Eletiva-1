@@ -1,3 +1,4 @@
+<?php declare(strict_types=1); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,12 +25,16 @@
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             try{
 
-                $numero = $_POST['valor1'];
+                $numero = (float) $_POST['valor1'] ?? 0;
+
+                function CalcularRaiz(float $numero): float{
+                    return sqrt($numero);
+                }
 
                 if ($numero >= 0) {
                     // Calcula a raiz quadrada utilizando a função sqrt()
-                    $raizQuadrada = sqrt($numero);
-                    echo "<p class='alert alert-success mt-3'>A raiz quadrada de $numero é: $raizQuadrada.</p>";
+                    
+                    echo "<p class='alert alert-success mt-3'>A raiz quadrada de $numero é: ".CalcularRaiz($numero)."</p>";
                 } else {
                     echo "<p class='alert alert-danger mt-3'>Não é possível calcular a raiz quadrada de um número negativo.</p>";
                 }

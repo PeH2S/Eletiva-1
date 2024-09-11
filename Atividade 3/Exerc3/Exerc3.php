@@ -1,3 +1,4 @@
+<?php declare(strict_types=1); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,12 +27,12 @@
         <?php
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             try {
-                $primeiraPalavra = $_POST['valor1'];
+                $primeiraPalavra = (string) $_POST['valor1'] ?? 0;
 
-                $segundaPalavra = $_POST['valor2'];  
+                $segundaPalavra = (string) $_POST['valor2'] ?? 0;  
 
                 // Função para verificar se a segunda palavra está contida na primeira
-                function verificarPalavra($primeiraPalavra, $segundaPalavra) {
+                function verificarPalavra($primeiraPalavra, $segundaPalavra): bool {
                     return strpos($primeiraPalavra, $segundaPalavra) !== false; 
                     // A função strpos em PHP é usada para encontrar a posição da primeira ocorrência de uma substring dentro de uma string. Se a substring for encontrada, a função retorna a posição (índice) da sua primeira ocorrência. Caso contrário, ela retorna false.
                 }

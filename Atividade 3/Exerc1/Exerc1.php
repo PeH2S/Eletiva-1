@@ -1,3 +1,4 @@
+<?php declare(strict_types=1); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,9 +24,12 @@
         
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             try {
-                $valor1 = $_POST['valor1'];
-                
-                echo "<div class='mt-3 alert alert-success'>Resultado: " . strlen($valor1) . "</div>";
+                $valor1 = (string) $_POST['valor1'] ?? 0;
+
+                function ContarCaracteres(string $valor1): int{
+                    return strlen($valor1);
+                }
+                echo "<div class='mt-3 alert alert-success'>Resultado: " . ContarCaracteres($valor1) . "</div>";
             
             } catch (Exception $e) {
                 echo "<div class='mt-3 alert alert-danger'>Erro: " . $e->getMessage() . "</div>";

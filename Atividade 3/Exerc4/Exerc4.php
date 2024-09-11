@@ -1,3 +1,4 @@
+<?php declare(strict_types=1); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,15 +29,23 @@
 
         <?php
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            try{
-                $dia = $_POST['dia'];
-                $mes = $_POST['mes'];
-                $ano = $_POST['ano'];
-
+            try {
+                $dia = (int) $_POST['dia'] ?? 0;
+                $mes = (int) $_POST['mes'] ?? 0;
+                $ano = (int) $_POST['ano'] ?? 0;
+        
+                function VerificarData(int $dia, int $mes, int $ano): bool {
+                    return checkdate($mes, $dia, $ano);
+                }
+        
+                function FormatarData(int $dia, int $mes, int $ano): string {
+                    return sprintf("%02d/%02d/%04d", $dia, $mes, $ano);
+                }
+        
                 // Verifica se a data é válida
-                if (checkdate($mes, $dia, $ano)) {
+                if (VerificarData($dia, $mes, $ano)) {
                     // Formata a data no formato dd/mm/YYYY
-                    $dataFormatada = sprintf("%02d/%02d/%04d", $dia, $mes, $ano);
+                    $dataFormatada = FormatarData($dia, $mes, $ano);
                     echo "<p class='alert alert-success mt-3'>Data válida: $dataFormatada</p>";
                 } else {
                     echo "<p class='alert alert-danger mt-3'>Data inválida!</p>";

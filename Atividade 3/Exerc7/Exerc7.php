@@ -1,3 +1,4 @@
+<?php declare(strict_types=1); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,10 +29,10 @@
         <?php
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             try {
-                $data1 = $_POST['data1'];
-                $data2 = $_POST['data2'];
+                $data1 = (string) $_POST['data1'] ?? 0;
+                $data2 = (string) $_POST['data2'] ?? 0;
 
-                function converterData($data)
+                function converterData(string $data): string|bool
                 {
                     $partes = explode('/', $data);
                     if (count($partes) == 3) {

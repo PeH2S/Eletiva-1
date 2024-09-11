@@ -1,3 +1,4 @@
+<?php declare(strict_types=1); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,10 +24,18 @@
         
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             try {
-                $valor1 = $_POST['valor1'];
+                $valor1 = (string) $_POST['valor1'] ?? 0;
+
+                function Upper(string $valor1): string{
+                    return strtoupper($valor1);
+                }
+                function Lower(string $valor1): string{
+                    return strtolower($valor1);
+                }
                 
-                echo "<div class='mt-3 alert alert-success'>Resultado: " . strtoupper($valor1) . "</div>";
-                echo "<div class='mt-3 alert alert-success'>Resultado: " . strtolower($valor1) . "</div>";
+                
+                echo "<div class='mt-3 alert alert-success'>Resultado: " . Upper( $valor1) . "</div>";
+                echo "<div class='mt-3 alert alert-success'>Resultado: " . Lower( $valor1) . "</div>";
             
             } catch (Exception $e) {
                 echo "<div class='mt-3 alert alert-danger'>Erro: " . $e->getMessage() . "</div>";
