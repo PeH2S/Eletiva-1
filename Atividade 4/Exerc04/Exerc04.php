@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contatos</title>
+    <title>Cadastro de Itens</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <div class="container mt-4">
-    <h2>Cadastro de Contatos</h2>
+    <h2>Cadastro de Itens</h2>
     <form method="post">
         <?php for ($i = 0; $i < 5; $i++) { ?>
             <div class="mb-3">
-                <label>Nome:</label>
+                <label>Nome do Item:</label>
                 <input type="text" class="form-control" name="nome<?php echo $i; ?>" >
             </div>
             <div class="mb-3">
-                <label>Telefone:</label>
-                <input type="text" class="form-control" name="telefone<?php echo $i; ?>" >
+                <label>Preço do Item:</label>
+                <input type="number" step="0.01" class="form-control" name="preco<?php echo $i; ?>" >
             </div>
         <?php } ?>
         <button type="submit" class="btn btn-primary">Cadastrar</button>
@@ -26,26 +26,23 @@
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         try {
-            $contatos = [];
+            $itens = [];
 
             for ($i = 0; $i < 5; $i++) {
                 $nome = $_POST["nome$i"];
-                $telefone = $_POST["telefone$i"];
+                $preco = $_POST["preco$i"];
 
-                if (!array_key_exists($nome, $contatos) && !in_array($telefone, $contatos)) {
-                    $contatos[$nome] = $telefone;
-                } else {
-                    echo "<div class='alert alert-danger mt-3'>Contato duplicado: $nome ou telefone já existe.</div>";
-                }
+                $precoComImposto = $preco * 1.15; // Aplicando 15% de imposto
+                $itens[$nome] = $precoComImposto;
             }
 
-            ksort($contatos);
+            asort($itens); // Ordena pelo preço
 
-            if (!empty($contatos)) {
-                echo "<h3 class='mt-4'>Contatos Cadastrados:</h3>";
+            if (!empty($itens)) {
+                echo "<h3 class='mt-4'>Itens Cadastrados (Com Imposto):</h3>";
                 echo "<ul class='list-group'>";
-                foreach ($contatos as $nome => $telefone) {
-                    echo "<li class='list-group-item'>Nome: $nome, Telefone: $telefone</li>";
+                foreach ($itens as $nome => $preco) {
+                    echo "<li class='list-group-item'>Nome: $nome, Preço com Imposto: R$" . number_format($preco, 2, ',', '.') . "</li>";
                 }
                 echo "</ul>";
             }
