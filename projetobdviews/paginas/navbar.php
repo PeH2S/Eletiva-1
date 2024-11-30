@@ -44,7 +44,7 @@
             Categorias
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="categorias.php">Gerenciar</a></li>
+            <li><a class="dropdown-item" href="categoria.php">Gerenciar</a></li>
           </ul>
         </li>
 
@@ -71,7 +71,7 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="reservas.php">Gerenciar</a></li>
-            <li><a class="dropdown-item" href="relatorio_reservas.php">Relatórios</a></li>
+            <li><a class="dropdown-item" href="reservas_relatorio.php">Relatórios</a></li>
           </ul>
         </li>
       </ul>

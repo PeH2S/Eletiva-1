@@ -1,10 +1,11 @@
 <?php 
     require_once 'cabecalho.php'; 
     require_once 'navbar.php';
+    
 ?>
 
 <div class="container mt-5">
-    <h2>Criar Nova Evento</h2>
+    <h2>Editar Evento</h2>
 
     <form method="post">
         <div class="mb-3">
